@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+h1 {
+    color: #152536;
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 50px;
+}
+
+h2 {
+    margin-top: 10%;
+    font-size: 55px;
+    font-family: 'Inter';
+    font-weight: bold;
+}
+
+h3 {
+    font-family: 'Inter';
+}
+
+.navbar {
+    background-color: #7749F8;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 650;
+    line-height: 28px;
+}
+
+.title {
+    color: #152536;
+    letter-spacing: -0.04em;
+    position: relative;
+    width: 1110px;
+    height: 0px;
+    left: 0px;
+    top: 12px;
+    font-size: bold;
+    font-weight: 500%;
+
+    /* Stroke/Input */
+    
+    border: 1px solid #CED4DA;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    
+    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 1;
+    align-self: flex-end;
+    flex-grow: 0;
+    margin: 0px 0;
+    padding: 40px 0;
+    line-height: 25%;
+}
+
+.task {
+    color: #152536;
+    position: relative;
+    width: 505px;
+    height: 72px;
+    left: 710px;
+    top: 1%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    background-color: #7749F8;
+    margin-top: 1%;
+    border-radius: 4px;
+}
