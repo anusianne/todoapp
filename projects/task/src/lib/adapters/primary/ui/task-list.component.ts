@@ -13,7 +13,7 @@ import { AddsTaskDtoPort } from '../../../application/ports/secondary/adds-task.
 
 export class TaskListComponent {
     
-    task$: Observable<TaskDTO[]> =
+    tasks$: Observable<TaskDTO[]> =
         this._getsAllTaskDto.getAll();
 
   constructor(

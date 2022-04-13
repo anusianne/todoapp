@@ -16,7 +16,6 @@ export class AddTaskComponent {
   ) { }
 
   onTaskFormSubmited(addTask: FormGroup): void {
-    this._router.navigate(['/my-list']); 
     if (addTask.invalid) {
       return;
     }
@@ -25,5 +24,12 @@ export class AddTaskComponent {
       text: addTask.get('text')?.value,
     });
     this.addTask.reset();
+    this._router.navigate(['/list']); 
+  }
+
+  onItemClicked(addTask: FormGroup): void {
+    this._addsTaskDto.add({
+      text: addTask.get('text')?.value,
+    });
   }
 }
