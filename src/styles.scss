@@ -16,6 +16,14 @@ h3 {
     font-family: 'Inter';
 }
 
+h4 {
+    font-weight: bold;
+    font-size: 50%;
+    display: inline;
+    letter-spacing: 0.1rem;
+
+}
+
 .navbar {
     background-color: #7749F8;
     font-family: 'Inter';
@@ -51,8 +59,8 @@ h3 {
     align-self: flex-end;
     flex-grow: 0;
     margin: 0px 0;
-    padding: 40px 0;
-    line-height: 25%;
+    padding: 45px 0;
+    line-height: 5%;
 }
 
 .task {
