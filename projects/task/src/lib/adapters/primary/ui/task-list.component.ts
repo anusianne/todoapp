@@ -8,22 +8,29 @@ import {
 import { Inject } from '@angular/core';
 import { ADDS_TASK_DTO } from '../../../application/ports/secondary/adds-task.dto-port';
 import { AddsTaskDtoPort } from '../../../application/ports/secondary/adds-task.dto-port';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import { REMOVES_TASK_DTO, RemovesTaskDtoPort } from '../../../application/ports/secondary/removes-task.dto-port';
+
 
 @Component({ selector: 'lib-task-list', templateUrl: './task-list.component.html', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush })
 
 export class TaskListComponent {
     
+   readonly removeTask: FormGroup = new FormGroup({
+    id: new FormControl(),
+  });
+
   tasks$: Observable<TaskDTO[]> =
     this._getsAllTaskDto.getAll();
 
   constructor(
     
-    @Inject(GETS_ALL_TASK_DTO)
-      
+    @Inject(GETS_ALL_TASK_DTO)   
     private _getsAllTaskDto: GetsAllTaskDtoPort,
-      
-    @Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort
+    @Inject(ADDS_TASK_DTO)
+    private _addsTaskDto: AddsTaskDtoPort,
+    @Inject(REMOVES_TASK_DTO)
+    private _removesTaskDto: RemovesTaskDtoPort,
   ) { }
 
   onAddTaskClicked(addTask: FormGroup): void {
@@ -47,5 +54,9 @@ export class TaskListComponent {
     this._addsTaskDto.add({
       text: addTask.get('text')?.value,
     });
+  }
+
+  onClickDeleted(id: string): void {
+    this._removesTaskDto.remove(id)
   }
 }

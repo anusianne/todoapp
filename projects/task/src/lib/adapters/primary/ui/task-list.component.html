@@ -10,8 +10,10 @@
                     {{task.text}}
                 </label>
             </div>
-            <div class="col-xl-1 col-3"><button type="button" class="btn btn-link" style="right:0;"><span class="bi bi-three-dots-vertical" style="color: black;"></span></button>
+            
+            <div class="col-xl-1 col-3"><button (click)="onClickDeleted(task.id)" type="button" class="btn btn-link" style="right:0;"><span class="bi bi-three-dots-vertical" style="color: black;"></span></button>
                 </div>
+           
             </li>
         </ul>
     </div>
