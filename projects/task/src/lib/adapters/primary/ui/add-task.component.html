@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-xl-4 col-md-6">
             <form [formGroup]="addTask" (ngSubmit)="onTaskFormSubmited(addTask)">
-                <input type="text" formControlName="text" style="width: 600px; height: 120px;"
+                <input type="text" formControlName="text" style="width: 600px; height: 120px; border: 1px solid #7749F8;"
                     placeholder="Write a new task here:" class="rounded">
                 <br>
-                <button value="Submit" [disabled]="addTask.invalid" class="btn me-4 mt-4 btn-primary" routerLink="/list"
+                <button value="Submit" [disabled]="addTask.invalid" class="btn me-4 mt-4 text-white" style="background-color: #7749F8; border: 1px solid #7749F8;" routerLink="/list"
                     type="submit" (click)="onItemClicked(addTask)" >Add task
                 </button>
-                <button class="btn mt-4 border-dark border-1" type="submit">Cancel</button>
+                <button class="btn mt-4 btn-outline-dark border-1" type="submit">Cancel</button>
             </form>
         </div>
     </div>

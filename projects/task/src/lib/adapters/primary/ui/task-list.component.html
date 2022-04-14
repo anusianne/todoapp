@@ -1,8 +1,14 @@
-<ul>
-    <li *ngFor="let task of tasks$ | async"><div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-    <label class="form-check-label" for="flexRadioDefault1">
-    {{task.text}}
-    </label>
-</div> </li>
-</ul>
+<br>
+<div class="container">
+    <div class="form-check">
+        <ul>
+            <li *ngFor="let task of tasks$ | async">
+                <input class="form-check-input fa-solid fa-circle-dot" type="radio" name="flexRadioDefault"
+                    id="{{task.id}}_id" value="{{task.text}}">
+                <label class="form-check-label" for="{{task.id}}_id">
+                    {{task.text}}
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>

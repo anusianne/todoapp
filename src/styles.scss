@@ -79,7 +79,27 @@ h4 {
 }
 
 .btn {
-    background-color: #7749F8;
     margin-top: 1%;
     border-radius: 4px;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]~label::before {
+    color: #33A;
+    content: "\f192";
+    font-family: "FontAwesome";
+}
+
+input[type=radio]:checked~label::before {
+    color: #33A;
+    content: "\f058";
+    display: inline-block;
+    font-family: "FontAwesome";
+    margin-right: 8px;
+}
+ul {
+    list-style-type: none;
 }
