@@ -2,35 +2,25 @@
 <div class="container">
     <div class="form-group">
         <ul>
-            <li *ngFor="let task of tasks$ | async">
+            <li *ngFor="let task of tasks$ | async" class="row">
+                <div class="col-xl-11 col-9">
                 <input class="form-check-input fa-solid fa-circle-dot strikethrough" type="checkbox" name="flexRadioDefault"
                     id="{{task.id}}_id" value="{{task.text}}">
                 <label class="form-check-label strikethrough" for="{{task.id}}_id">
                     {{task.text}}
                 </label>
-                <button type="button" class="btn btn-link"><span class="bi bi-three-dots-vertical"></span></button>
+            </div>
+            <div class="col-xl-1 col-3"><button type="button" class="btn btn-link" style="right:0;"><span class="bi bi-three-dots-vertical" style="color: black;"></span></button>
+                </div>
             </li>
         </ul>
     </div>
 </div>
 <div class="container">
-<button id="switch" class="btn text-white" style="background-color: #7749F8; border: 1px solid #7749F8;">Add Task</button>
-
+    <hr>
+<button id="switch" (click)="onSwitchClicked()" class="btn text-white" style="background-color: #7749F8; border: 1px solid #7749F8;">Add Task</button>
 <div id="auxform">
     <lib-add-task></lib-add-task>
-</div>
-
-<script>
-    $('#switch').onClick(function () {
-        console.log("test");
-        $('#auxform').css({
-            'display': 'block'
-        });
-        $('#switch').css({
-            'display': 'none'
-        });
-    })
-</script>
 </div>
 
 

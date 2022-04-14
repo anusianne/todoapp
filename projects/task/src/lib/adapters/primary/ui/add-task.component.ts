@@ -15,6 +15,8 @@ export class AddTaskComponent {
     private _router: Router
   ) { }
 
+
+
   onItemClicked(addTask: FormGroup): void {
     this._addsTaskDto.add({
       text: addTask.get('text')?.value,

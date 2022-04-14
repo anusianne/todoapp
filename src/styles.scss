@@ -43,16 +43,9 @@ h4 {
     font-size: bold;
     font-weight: 500%;
 
-    /* Stroke/Input */
-    
-    border: 1px solid #CED4DA;
     border-top-style: none;
     border-left-style: none;
     border-right-style: none;
-    
-    
-    
-    /* Inside auto layout */
     
     flex: none;
     order: 1;
@@ -111,3 +104,4 @@ ul {
 input[type=checkbox]:checked+label.strikethrough {
     text-decoration: line-through;
 }
+

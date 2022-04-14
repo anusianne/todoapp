@@ -32,6 +32,17 @@ export class TaskListComponent {
     });
   }
 
+  onSwitchClicked(): void {
+    console.log("test");
+    var auxForm = document.getElementById('auxform');
+    if(auxForm != null)
+      auxForm.style.display = "block";
+    var switcher = document.getElementById('switch');
+    if (switcher != null)
+      switcher.style.display = "none";
+  }
+  
+
   onItemClicked(addTask: FormGroup): void {
     this._addsTaskDto.add({
       text: addTask.get('text')?.value,
