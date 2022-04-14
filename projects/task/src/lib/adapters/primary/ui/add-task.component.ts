@@ -15,18 +15,6 @@ export class AddTaskComponent {
     private _router: Router
   ) { }
 
-  onTaskFormSubmited(addTask: FormGroup): void {
-    if (addTask.invalid) {
-      return;
-    }
-
-    this._addsTaskDto.add({
-      text: addTask.get('text')?.value,
-    });
-    this.addTask.reset();
-    this._router.navigate(['/list']); 
-  }
-
   onItemClicked(addTask: FormGroup): void {
     this._addsTaskDto.add({
       text: addTask.get('text')?.value,
