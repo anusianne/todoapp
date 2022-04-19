@@ -12,6 +12,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { REMOVES_TASK_DTO, RemovesTaskDtoPort } from '../../../application/ports/secondary/removes-task.dto-port';
 
 
+
 @Component({ selector: 'lib-task-list', templateUrl: './task-list.component.html', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush })
 
 export class TaskListComponent {
@@ -56,7 +57,8 @@ export class TaskListComponent {
     });
   }
 
-  onClickDeleted(id: string): void {
-    this._removesTaskDto.remove(id)
+  onClickDeleted(taskId: string): void {
+    this._removesTaskDto.remove(taskId)
   }
 }
+

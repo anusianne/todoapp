@@ -5,6 +5,7 @@ import { AddTaskComponentModule } from '@task';
 import { RouterModule } from '@angular/router';
 
 
+
 @NgModule({ imports: [CommonModule, AddTaskComponentModule, RouterModule],
   	declarations: [TaskListComponent],
   	providers: [],
