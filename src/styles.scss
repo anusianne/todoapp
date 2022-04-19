@@ -1,3 +1,4 @@
+@import "~bootstrap/dist/css/bootstrap.css";
 h1 {
     color: #152536;
     font-family: 'Inter';
@@ -72,8 +73,11 @@ h4 {
 }
 
 .btn {
-    margin-top: 1%;
+   // margin-top: 1%;
     border-radius: 4px;
+}
+.dropdown-menu{
+    max-width: 1rem;
 }
 
 input[type=checkbox] {
@@ -105,3 +109,9 @@ input[type=checkbox]:checked+label.strikethrough {
     text-decoration: line-through;
 }
 
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
