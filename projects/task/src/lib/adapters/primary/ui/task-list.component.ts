@@ -10,6 +10,7 @@ import { ADDS_TASK_DTO } from '../../../application/ports/secondary/adds-task.dt
 import { AddsTaskDtoPort } from '../../../application/ports/secondary/adds-task.dto-port';
 import { FormGroup, FormControl } from '@angular/forms';
 import { REMOVES_TASK_DTO, RemovesTaskDtoPort } from '../../../application/ports/secondary/removes-task.dto-port';
+import { Router } from '@angular/router';
 
 
 
@@ -18,9 +19,9 @@ import { REMOVES_TASK_DTO, RemovesTaskDtoPort } from '../../../application/ports
 
 export class TaskListComponent {
     
-   readonly removeTask: FormGroup = new FormGroup({
+  readonly removeTask: FormGroup = new FormGroup({
     id: new FormControl(),
-   });
+  });
   
   tasks$: Observable<TaskDTO[]> =
     this._getsAllTaskDto
@@ -28,14 +29,15 @@ export class TaskListComponent {
       .pipe(map((task: TaskDTO[]) => task.sort((a, b) => (b.created_at) - (a.created_at))));
     
   
-  taskIdToBeDeleted: string = ""; 
+  taskIdToBeDeleted: string = "";
 
   constructor(
     
-    @Inject(GETS_ALL_TASK_DTO)   
+    @Inject(GETS_ALL_TASK_DTO)
     private _getsAllTaskDto: GetsAllTaskDtoPort,
     @Inject(ADDS_TASK_DTO)
     private _addsTaskDto: AddsTaskDtoPort,
+    private _router: Router,
     @Inject(REMOVES_TASK_DTO)
     private _removesTaskDto: RemovesTaskDtoPort,
   ) { }
@@ -49,7 +51,7 @@ export class TaskListComponent {
   onSwitchClicked(): void {
     console.log("test");
     var auxForm = document.getElementById('auxform');
-    if(auxForm != null)
+    if (auxForm != null)
       auxForm.style.display = "block";
     var switcher = document.getElementById('switch');
     if (switcher != null)
@@ -70,6 +72,11 @@ export class TaskListComponent {
   getIdToBeDeleted(taskId: string): void {
     this.taskIdToBeDeleted = taskId
   }
+
+  rerouteToHome(): void {
+    this._router.navigateByUrl("");
+   }
+
 }
 
 
