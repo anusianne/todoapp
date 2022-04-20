@@ -20,6 +20,7 @@ export class AddTaskComponent {
   onItemClicked(addTask: FormGroup): void {
     this._addsTaskDto.add({
       text: addTask.get('text')?.value,
+      created_at: Date.now()
     });
   }
 }

@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { TaskDTO } from '../../../application/ports/secondary/task.dto';
 import {
   GETS_ALL_TASK_DTO,
@@ -13,16 +13,22 @@ import { REMOVES_TASK_DTO, RemovesTaskDtoPort } from '../../../application/ports
 
 
 
+
 @Component({ selector: 'lib-task-list', templateUrl: './task-list.component.html', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush })
 
 export class TaskListComponent {
     
    readonly removeTask: FormGroup = new FormGroup({
     id: new FormControl(),
-  });
-
+   });
+  
   tasks$: Observable<TaskDTO[]> =
-    this._getsAllTaskDto.getAll();
+    this._getsAllTaskDto
+      .getAll()
+      .pipe(map((task: TaskDTO[]) => task.sort((a, b) => (b.created_at) - (a.created_at))));
+    
+  
+  taskIdToBeDeleted: string = ""; 
 
   constructor(
     
@@ -57,8 +63,16 @@ export class TaskListComponent {
     });
   }
 
-  onClickDeleted(taskId: string): void {
-    this._removesTaskDto.remove(taskId)
+  onDeleteClicked(): void {
+    this._removesTaskDto.remove(this.taskIdToBeDeleted)
+  }
+
+  getIdToBeDeleted(taskId: string): void {
+    this.taskIdToBeDeleted = taskId
   }
 }
+
+
+
+
 
