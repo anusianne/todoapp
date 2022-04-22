@@ -1,4 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "node_modules/angular-notifier/styles";
+@import '~bootstrap/scss/bootstrap';
+
 h1 {
     color: #152536;
     font-family: 'Inter';
@@ -109,14 +112,6 @@ input[type=checkbox]:checked+label.strikethrough {
     text-decoration: line-through;
 }
 
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-
-
 .container {
     width: 400px;
     margin: 0 auto;
@@ -130,3 +125,8 @@ input[type=checkbox]:checked+label.strikethrough {
 .item {
     padding: 8px;
 }
+
+.pointer:hover {
+   cursor: pointer;
+}
+

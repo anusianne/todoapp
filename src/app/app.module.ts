@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { NotifierModule } from 'angular-notifier';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     NavComponentModule,
     AngularFireModule.initializeApp(environment.firestoreConfig),
+    NotifierModule
   ],
   providers: [],
   bootstrap: [AppComponent]

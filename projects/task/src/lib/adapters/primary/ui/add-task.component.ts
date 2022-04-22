@@ -12,15 +12,16 @@ export class AddTaskComponent {
   constructor(
     @Inject(ADDS_TASK_DTO)
     private _addsTaskDto: AddsTaskDtoPort,
-    private _router: Router
+    private _router: Router,
   ) { }
 
 
-
-  onItemClicked(addTask: FormGroup): void {
+  onAddTaskClicked(addTask: FormGroup): void {
     this._addsTaskDto.add({
       text: addTask.get('text')?.value,
       created_at: Date.now()
     });
-  }
+    //if (window.location.toString() == 'localhost/list')
+   // window.location.reload();
+  } 
 }

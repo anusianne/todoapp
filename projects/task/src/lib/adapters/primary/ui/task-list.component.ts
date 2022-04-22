@@ -11,13 +11,14 @@ import { AddsTaskDtoPort } from '../../../application/ports/secondary/adds-task.
 import { FormGroup, FormControl } from '@angular/forms';
 import { REMOVES_TASK_DTO, RemovesTaskDtoPort } from '../../../application/ports/secondary/removes-task.dto-port';
 import { Router } from '@angular/router';
-
-
-
+import { NotifierService } from 'angular-notifier';
+  
 
 @Component({ selector: 'lib-task-list', templateUrl: './task-list.component.html', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush })
 
 export class TaskListComponent {
+
+  private readonly notifier: NotifierService
     
   readonly removeTask: FormGroup = new FormGroup({
     id: new FormControl(),
@@ -31,6 +32,9 @@ export class TaskListComponent {
   
   taskIdToBeDeleted: string = "";
 
+  counter: number = 0;
+
+  
   constructor(
     
     @Inject(GETS_ALL_TASK_DTO)
@@ -40,7 +44,8 @@ export class TaskListComponent {
     private _router: Router,
     @Inject(REMOVES_TASK_DTO)
     private _removesTaskDto: RemovesTaskDtoPort,
-  ) { }
+    notifierService: NotifierService
+  ) {this.notifier = notifierService; }
 
   onAddTaskClicked(addTask: FormGroup): void {
     this._addsTaskDto.add({
@@ -67,6 +72,7 @@ export class TaskListComponent {
 
   onDeleteClicked(): void {
     this._removesTaskDto.remove(this.taskIdToBeDeleted)
+    this.notifier.notify('success', (++this.counter).toString() + ' task has been deleted!')
   }
 
   getIdToBeDeleted(taskId: string): void {

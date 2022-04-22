@@ -3,14 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageModule } from './pages/home.page-module';
 import { AddTaskPageModule } from './pages/add-task.page-module';
 import { ListPageModule } from './pages/list.page-module';
-import { NavComponentModule } from '@nav';
-import { TestPageModule } from './pages/test.page-module';
+
 
 const routes: Routes = [{ 
-        path: '', 
-        loadChildren: () => HomePageModule
-      },
-  { 
         path: 'atask', 
         loadChildren: () => AddTaskPageModule
       },
@@ -19,8 +14,8 @@ const routes: Routes = [{
         loadChildren: () => ListPageModule
   },
   { 
-        path: 'test', 
-        loadChildren: () => TestPageModule
+        path: '', 
+        loadChildren: () => HomePageModule
       }
 ];
 
